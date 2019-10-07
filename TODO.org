@@ -6,12 +6,15 @@
   - [ ] Change src/theme.py name
   - [ ] Improve function/variables names
 
-- YAML Theme Parser [0/1]:
+- YAML Theme Parser [0/2]:
   - [ ] Improve yaml theme loader reliability
+  - [ ] Allow several metadata
 
-- Theme applying algorithm [0/2]:
+- Theme applying algorithm [0/3]:
   - [ ] Improve efficiency
   - [ ] Assume that theme to apply is well formated (checked in YAML Theme Parser)
+  - [ ] If there is no "colors" field in "bar" section, we still need to apply theme
 
-- General [0/1]:
+- General [1/2]:
   - [ ] Improve user API
+  - [X] Allow -r option (restart i3)

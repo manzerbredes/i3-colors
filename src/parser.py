@@ -65,7 +65,6 @@ def apply_to_config(tmp_config,theme):
     f.close()
     
 def apply_theme(config_file,theme):
-    print("Applying theme: "+theme["meta"]["description"])
     tmp=extract_config(config_file)
     apply_to_config(tmp,theme)
     shutil.move(tmp,config_file)
