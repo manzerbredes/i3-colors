@@ -21,9 +21,9 @@ args = args_parser.parse_args()
 
 ##### Apply Theme #####
 loaded_theme=theme.load(args.theme_path)
+config.apply_theme(os.environ["HOME"]+"/.config/i3/config",loaded_theme)
 for meta_key,meta_value in loaded_theme["meta"].items():
     log(meta_value,title=meta_key.title())
-config.apply_theme(os.environ["HOME"]+"/.config/i3/config",loaded_theme)
 if args.restart:
     subprocess.Popen("i3-msg restart".split()) 
 #######################

@@ -1,7 +1,9 @@
 # vim: filetype=yaml
 ---
 meta:
-  description: 'Inspired by the Purple and Default themes. By jcpst <http://jcpst.com>'
+  author: jcpst
+  url: http://jcpst.com
+  description: 'Inspired by the Purple and Default themes.'
 bar_colors:
   separator: dimgrey
   background: black

@@ -2,7 +2,7 @@
 
 import re,tempfile,shutil
 
-theme_keys=["client.focused",
+config_keys=["client.focused",
             "client.focused_inactive",
             "client.unfocused",
             "client.urgent",
@@ -22,7 +22,7 @@ def extract_config(config_file):
     tmp=tempfile.NamedTemporaryFile(mode="w",delete=False)
     for line in f:
         is_theme_line=False
-        for key in theme_keys:
+        for key in config_keys:
             if contains(".*"+key+"\s",line):
                 is_theme_line=True
         if not(is_theme_line):
@@ -63,45 +63,10 @@ def apply_to_config(tmp_config,theme):
     for key,value in client_theme.items():
         f.write("client."+key+" "+value["border"]+" "+value["background"]+" "+value["text"]+" "+value["indicator"]+" "+safe_get(value,"child_border")+"\n")
     f.close()
-    
+
+
 def apply_theme(config_file,theme):
     tmp=extract_config(config_file)
     apply_to_config(tmp,theme)
     shutil.move(tmp,config_file)
-
-theme={
-    "bar":{
-        "separator": "#666666",
-        "background": "#333333",
-        "statusline": "#bbbbbb",
-        "focused_workspace": { "border":"#888888",
-                               "background": "#dddddd",
-                               "text": "#222222"},
-        "active_workspace":  { "border": "#333333",
-                               "background": "#555555",
-                               "text": "#bbbbbb"},
-        "inactive_workspace": { "border": "#333333",
-                                "background": "#555555",
-                                "text": "#bbbbbb"},
-        "urgent_workspace": { "border": "#2f343a",
-                              "background": "#900000",
-                              "text": "#ffffff"}},
-    "client": {
-        "client.focused":  { "background": "#888888",
-                             "text": "#dddddd",
-                             "indicator": "#222222",
-                             "child_border": "#2e9ef4"},
-        "client.focused_inactive":  { "background": "#333333",
-                                      "text": "#555555",
-                                      "indicator": "#bbbbbb",
-                                      "child_border": "#484e50"},
-        "client.unfocused":  { "background": "#333333",
-                               "text": "#333333",
-                               "indicator": "#888888",
-                               "child_border": "#292d2e"},
-        "client.urgent":  { "background": "#2f343a",
-                            "text": "#900000",
-                            "indicator": "#ffffff",
-                            "child_border": "#900000"}}
-}
 

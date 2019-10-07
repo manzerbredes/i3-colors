@@ -2,7 +2,9 @@
 # TODO: use color aliases to make the theme more readable
 ---
 meta:
-  description: 'Archlinux theme by okraits <http://okraits.de>'
+  author: okraits
+  url: http://okraits.de
+  description: 'Archlinux theme'
 window_colors:
   focused:
     border:           '#0088CC'

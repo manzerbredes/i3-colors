@@ -2,7 +2,8 @@
 # TODO: use color aliases to make the theme more readable
 ---
 meta:
-  description: 'Debian theme by lasers'
+  author: lasers
+  description: 'Debian theme'
 window_colors:
   focused:
     border:           '#d70a53'

@@ -1,7 +1,8 @@
 # vim: filetype=yaml
 ---
 meta:
-  description: A beige theme by Alphare
+  author: Alphare
+  description: A beige theme
 colors:
   black: '#000000'
   oldlace: '#FDF6E3'

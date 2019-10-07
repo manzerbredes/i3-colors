@@ -19,7 +19,9 @@ colors:
     base0F:              '#a3685a'
 
 meta:
-    description:         'Base16 Tomorrow, by Chris Kempson (http://chriskempson.com)'
+    author: Chris Kempson
+    url: http://chriskempson.com
+    description:         'Base16 Tomorrow'
 window_colors:
     focused:
         border:          'base0D'
