@@ -32,12 +32,17 @@ def extract_config(config_file):
     tmp.close()
     return(tmp.name)
 
+def safe_get(theme,key):
+    if key in theme:
+        return(theme[key])
+    return("")
+
 def apply_to_config(tmp_config,theme):
     f=open(tmp_config,mode="r")
     tmp=tempfile.NamedTemporaryFile(mode="w",delete=False)
 
     ##### Apply bar theme #####
-    bar_theme=theme["bar"]
+    bar_theme=theme["bar_colors"]
     for line in f:
         if contains(".*colors\s{",line):
             tmp.write(line)
@@ -53,18 +58,17 @@ def apply_to_config(tmp_config,theme):
     shutil.move(tmp.name,tmp_config)
     
     ##### Apply client theme #####
-    client_theme=theme["client"]
+    client_theme=theme["window_colors"]
     f=open(tmp_config,mode="a")
     for key,value in client_theme.items():
-        f.write(key+" "+value["background"]+" "+value["text"]+" "+value["indicator"]+" "+value["child_border"]+"\n")
+        f.write("client."+key+" "+value["border"]+" "+value["background"]+" "+value["text"]+" "+value["indicator"]+" "+safe_get(value,"child_border")+"\n")
     f.close()
     
 def apply_theme(config_file,theme):
+    print("Applying theme: "+theme["meta"]["description"])
     tmp=extract_config(config_file)
     apply_to_config(tmp,theme)
-    shutil.move(tmp,"/home/loic/aa.theme")
-
-    
+    shutil.move(tmp,config_file)
 
 theme={
     "bar":{
