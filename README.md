@@ -10,4 +10,5 @@ Simple Python i3 colors manager.<br />
 
 ### Screenshots
 
+Alphare:
 ![alphare](themes/alphare.jpg)
