@@ -1,0 +1,17 @@
+#+TITLE: "i3-colors Project Todo List"
+#+AUTHOR: "Loic Guegan"
+
+- Refactoring [0/3]:
+  - [ ] Change src/parser.py name
+  - [ ] Change src/theme.py name
+  - [ ] Improve function/variables names
+
+- YAML Theme Parser [0/1]:
+  - [ ] Improve yaml theme loader reliability
+
+- Theme applying algorithm [0/2]:
+  - [ ] Improve efficiency
+  - [ ] Assume that theme to apply is well formated (checked in YAML Theme Parser)
+
+- General [0/1]:
+  - [ ] Improve user API
