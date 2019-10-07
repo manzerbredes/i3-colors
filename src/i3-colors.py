@@ -25,6 +25,6 @@ config.apply_theme(os.environ["HOME"]+"/.config/i3/config",loaded_theme)
 for meta_key,meta_value in loaded_theme["meta"].items():
     log(meta_value,title=meta_key.title())
 if args.restart:
-    subprocess.Popen("i3-msg restart".split()) 
+    subprocess.Popen("i3-msg restart".split(),stdout=subprocess.PIPE, stderr=subprocess.PIPE) 
 #######################
 
