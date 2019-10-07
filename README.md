@@ -7,3 +7,7 @@ Simple Python i3 colors manager.<br />
       ./i3-colors/src/i3-colors.py -h
     
 **Notes:** Some of the themes come from [i3-style project](https://github.com/altdesktop/i3-style)
+
+### Screenshots
+
+![alphare](themes/alphare.jpg)
