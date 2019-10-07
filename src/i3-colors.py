@@ -1,7 +1,6 @@
 #!/usr/bin/python 
 import config, theme, os, argparse, subprocess
 
-
 ##### Utils Functions #####
 def log(msg,title=""):
     if len(title)>0:
@@ -21,7 +20,7 @@ args = args_parser.parse_args()
 
 ##### Apply Theme #####
 loaded_theme=theme.load(args.theme_path)
-config.apply_theme(os.environ["HOME"]+"/.config/i3/config",loaded_theme)
+config.apply(os.environ["HOME"]+"/.config/i3/config",loaded_theme)
 for meta_key,meta_value in loaded_theme["meta"].items():
     log(meta_value,title=meta_key.title())
 if args.restart:
