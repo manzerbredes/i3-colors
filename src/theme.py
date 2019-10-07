@@ -1,6 +1,5 @@
 import yaml,re
 
-
 def configure(theme):
     if "colors" in theme:
         colors=theme["colors"]

@@ -1,9 +1,8 @@
 #+TITLE: "i3-colors Project Todo List"
 #+AUTHOR: "Loic Guegan"
 
-- Refactoring [0/3]:
-  - [ ] Change src/parser.py name
-  - [ ] Change src/theme.py name
+- Refactoring [1/3]:
+  - [X] Change src/parser.py name => now config.py
   - [ ] Improve function/variables names
 
 - YAML Theme Parser [0/2]:
