@@ -1,0 +1,49 @@
+bar_colors:
+  active_workspace:
+    background: '#4b4f54'
+    border: '#4b4f54'
+    text: '#dfe0e3'
+  background: '#464b4f'
+  focused_workspace:
+    background: '#3c82a4'
+    border: '#3c82a4'
+    text: '#eff0f1'
+  inactive_workspace:
+    background: '#4b4f54'
+    border: '#4b4f54'
+    text: '#dfe0e3'
+  separator: '#bfc2c4'
+  statusline: '#eff0f1'
+  urgent_workspace:
+    background: '#3daee9'
+    border: '#3daee9'
+    text: '#eff0f1'
+meta:
+  author: okraits
+  url: https://github.com/okraits/j4-make-config 
+window_colors:
+  focused:
+    background: '#475057'
+    border: '#475057'
+    child_border: '#475057'
+    indicator: '#bdc3c7'
+    text: '#eff0f1'
+  focused_inactive:
+    background: '#7f8c8d'
+    border: '#7f8c8d'
+    child_border: '#7f8c8d'
+    indicator: '#bdc3c7'
+    text: '#eff0f1'
+  unfocused:
+    background: '#eff0f1'
+    border: '#eff0f1'
+    child_border: '#eff0f1'
+    indicator: '#bdc3c7'
+    text: '#bdc3c7'
+  urgent:
+    background: '#3daee9'
+    border: '#3daee9'
+    child_border: '#3daee9'
+    indicator: '#bdc3c7'
+    text: '#eff0f1'
+
