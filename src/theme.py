@@ -1,6 +1,9 @@
 import yaml,re, sys
 
 def configure(theme):
+    """
+    Apply user define colors and apply some correction factors.
+    """
     if "colors" in theme:
         colors=theme["colors"]
         window_colors=theme["window_colors"]
@@ -36,6 +39,9 @@ def configure(theme):
     return(theme)
 
 def validate(theme):
+    """
+    Abort if theme is in a wrong format.
+    """
     abort=lambda msg: sys.exit("Error while loading theme: "+msg)
     inv_key=lambda key: abort("invalid key \""+key+"\"")
     for key,value in theme.items():
@@ -51,8 +57,14 @@ def validate(theme):
                 if not(key in ["focused","focused_inactive","unfocused","urgent","child_border"]):
                     inv_key(key)
 
-
 def load(theme_file):
+    """
+    Load a theme as a dict():
+      - Open YAML file
+      - Parse it as a dict
+      - Configure the parsed dict
+      - Validate the configured dict
+    """
     f=open(theme_file,mode="r")
     theme=yaml.load(f,Loader=yaml.FullLoader)
     f.close()

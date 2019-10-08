@@ -1,18 +1,16 @@
-#!/usr/bin/python
-
 import re,tempfile,shutil
 
 config_keys=["client.focused",
-            "client.focused_inactive",
-            "client.unfocused",
-            "client.urgent",
-            "separator",
-            "background",
-            "statusline",
-            "focused_workspace",
-            "active_workspace",
-            "inactive_workspace",
-            "urgent_workspace"]
+             "client.focused_inactive",
+             "client.unfocused",
+             "client.urgent",
+             "separator",
+             "background",
+             "statusline",
+             "focused_workspace",
+             "active_workspace",
+             "inactive_workspace",
+             "urgent_workspace"]
 
 ##### Parsing Utils #####
 def contains(r,line):
@@ -41,7 +39,6 @@ def no_comment(line):
     return(newline)
 #########################
 
-
 def extract(config_file):
     """
      Return a temporary file path containing the current user configuration
@@ -59,7 +56,7 @@ def extract(config_file):
                 is_theme_line=True
         if contains(".*colors",line):
             in_colors=True
-            beforeColor=re.search(".*colors",line).group(0)[:-6]
+            beforeColor=before_token("colors",line).strip()
             if len(beforeColor)>0:
                 tmp.write(beforeColor+"\n")
         if not(is_theme_line) and not(in_colors):
@@ -70,14 +67,6 @@ def extract(config_file):
     tmp.close()
     return(tmp.name)
             
-def safe_get(theme,key):
-    """
-    TODO: To remove (useless now)
-    """
-    if key in theme:
-        return(theme[key])
-    return("")
-
 def write_theme(tmp_config,theme):
     """
     Write the theme in a temporary file
@@ -94,7 +83,7 @@ def write_theme(tmp_config,theme):
         if contains("(\s)*bar",line):
             in_bar=True
         if contains(".*}",line) and in_bar:
-            beforeBrace=re.search(".*}",line).group(0)[:-1]
+            beforeBrace=before_token("}",line).strip()
             if len(beforeBrace)>0:
                 tmp.write(beforeBrace+"\n")
             tmp.write("  colors {\n")
