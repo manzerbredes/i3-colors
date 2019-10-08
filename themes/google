@@ -19,7 +19,8 @@ bar_colors:
     border: '#FFCB21'
     text: '#ffffff'
 meta:
-  description: Generated From i3-colors
+    author: lasers
+    url: https://github.com/okraits/j4-make-config
 window_colors:
   focused:
     background: '#2d76f6'
