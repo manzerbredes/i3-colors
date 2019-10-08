@@ -83,7 +83,9 @@ def extract_theme(config_file):
                 is_theme_line=True
         if contains(".*colors",line):
             in_colors=True
-        if is_theme_line or in_colors:
+        if contains("(\s)*set",line): # If var definition
+            build.parse(line_orig)
+        elif is_theme_line or in_colors:
             build.parse(line_orig) # Seems to by strange to have comment here
         if contains(".*}",line) and in_colors:
             in_colors=False    

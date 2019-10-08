@@ -77,9 +77,18 @@ class ThemeBuilder:
         self.theme={"meta": {"description": "Generated From i3-colors"},
                         "window_colors":dict(),
                         "bar_colors":dict()}
+        self.vars=list()
+        self.vars_values=dict()
+        
     def dump(self):
         print(yaml.dump(self.theme))
 
+    def get(self,key):
+        if key in self.vars:
+            return(self.vars_values[key])
+        else:
+            return(key)
+        
     def parse(self,line):
         if re.match("client.*",line):
             tokens=line.split()
@@ -88,14 +97,14 @@ class ThemeBuilder:
             subkeys=["border","background","text","indicator","child_border"]
             self.theme["window_colors"][key]=dict()
             for token in tokens:
-                self.theme["window_colors"][key][subkeys[0]]=token
+                self.theme["window_colors"][key][subkeys[0]]=self.get(token)
                 subkeys.pop(0)
         elif re.match(".*background.*",line):
-            self.theme["bar_colors"]["background"]=line.split()[1]
+            self.theme["bar_colors"]["background"]=self.get(line.split()[1])
         elif re.match(".*statusline.*",line):
-            self.theme["bar_colors"]["statusline"]=line.split()[1]
+            self.theme["bar_colors"]["statusline"]=self.get(line.split()[1])
         elif re.match(".*separator.*",line):
-            self.theme["bar_colors"]["separator"]=line.split()[1]
+            self.theme["bar_colors"]["separator"]=self.get(line.split()[1])
         elif re.match(".*_workspace.*",line):
             tokens=line.split()
             key=tokens[0]
@@ -103,7 +112,11 @@ class ThemeBuilder:
             subkeys=["border","background","text"]
             self.theme["bar_colors"][key]=dict()
             for token in tokens:
-                self.theme["bar_colors"][key][subkeys[0]]=token
+                self.theme["bar_colors"][key][subkeys[0]]=self.get(token)
                 subkeys.pop(0)
+        elif re.match("(\s)*set",line):
+            key,name,value=line.split()
+            self.vars.append(name)
+            self.vars_values[name]=value
             
         
