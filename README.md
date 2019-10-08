@@ -11,6 +11,7 @@ Simple Python i3 colors manager.<br />
 ### Features
 - Instant theme changing `./i3-colors.py apply [theme-path]`
 - Theme extraction `./i3-colors.py extract [i3-config-file]`
+- Apply random colors `./i3-colors.py aleatory`
 
 ### Screenshots
 
