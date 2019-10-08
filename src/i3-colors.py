@@ -1,5 +1,5 @@
 #!/usr/bin/python 
-import config, theme, os, argparse, subprocess
+import config, theme, os, argparse, subprocess,sys
 
 ##### Utils Functions #####
 def log(msg,title=""):
@@ -18,11 +18,15 @@ def apply(args):
         if args.restart:
             subprocess.Popen("i3-msg restart".split(),stdout=subprocess.PIPE, stderr=subprocess.PIPE) 
 #######################
-
+def aleatory(args):
+    t=theme.random_theme().as_dict()
+    config.apply(os.environ["HOME"]+"/.config/i3/config",t)
+    if args.restart:
+        subprocess.Popen("i3-msg restart".split(),stdout=subprocess.PIPE, stderr=subprocess.PIPE) 
 ##### Extract Theme #####
 def extract(args):
-    theme=config.extract_theme(args.config_path)
-    theme.dump()
+    t=config.extract_theme(args.config_path)
+    print(t.as_yaml())
 #######################
 
 ##### Parse Arguments #####
@@ -39,6 +43,15 @@ argsExtractParser.add_argument('config_path', type=str, nargs='?',
                     help='Extract theme from config file.')
 argsExtractParser.set_defaults(func=extract)
 
-args = argsMainParser.parse_args()
-args.func(args)
+argsAleatoryParser = argsSubParsers.add_parser("aleatory")
+argsAleatoryParser.add_argument('-r', '--restart' ,action='store_true', help='Restart i3 after applying theme.')
+argsAleatoryParser.set_defaults(func=aleatory)
+
+
+if __name__ == "__main__":
+    args = argsMainParser.parse_args()
+    if len(sys.argv)>1:
+        args.func(args)
+    else:
+        argsMainParser.print_help()
 ###########################

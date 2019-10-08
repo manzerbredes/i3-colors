@@ -1,4 +1,4 @@
-import yaml,re, sys
+import yaml,re, sys,random
 
 def configure(theme):
     """
@@ -72,6 +72,7 @@ def load(theme_file):
     validate(theme)
     return(theme)
 
+
 class ThemeBuilder:
     def __init__(self):
         self.theme={"meta": {"description": "Generated From i3-colors"},
@@ -80,9 +81,13 @@ class ThemeBuilder:
         self.vars=list()
         self.vars_values=dict()
         
-    def dump(self):
-        print(yaml.dump(self.theme))
+    def as_yaml(self):
+        return(yaml.dump(self.theme))
 
+    def as_dict(self):
+        return(self.theme)
+
+        
     def get(self,key):
         if key in self.vars:
             return(self.vars_values[key])
@@ -119,4 +124,17 @@ class ThemeBuilder:
             self.vars.append(name)
             self.vars_values[name]=value
             
-        
+def random_theme():
+    r= lambda: "#"+hex(random.randint(0,16777214))[2:]
+    t=ThemeBuilder()
+    t.parse("client.focused          {} {} {} {} {}".format(r(),r(),r(),r(),r()))
+    t.parse("client.unfocused          {} {} {} {} {}".format(r(),r(),r(),r(),r()))
+    t.parse("client.urgent          {} {} {} {} {}".format(r(),r(),r(),r(),r()))
+    t.parse("background          {}".format(r()))
+    t.parse("statusline          {}".format(r()))
+    t.parse("separator          {}".format(r()))
+    t.parse("focused_workspace          {} {} {}".format(r(),r(),r()))
+    t.parse("active_workspace          {} {} {}".format(r(),r(),r()))
+    t.parse("inactive_workspace          {} {} {}".format(r(),r(),r()))
+    t.parse("urgent_workspace          {} {} {}".format(r(),r(),r()))
+    return(t)
