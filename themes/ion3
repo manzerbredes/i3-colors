@@ -1,0 +1,45 @@
+bar_colors:
+  active_workspace:
+    background: '#303030'
+    border: '#5F5F5F'
+    text: '#808080'
+  background: '#000000'
+  focused_workspace:
+    background: '#606070'
+    border: '#808090'
+    text: '#C0C0C5'
+  inactive_workspace:
+    background: '#303030'
+    border: '#5F5F5F'
+    text: '#808080'
+  separator: '#666666'
+  statusline: '#ffffff'
+  urgent_workspace:
+    background: '#900000'
+    border: '#2f343a'
+    text: '#ffffff'
+meta:
+  author: okraits
+  url: http://okraits.de
+window_colors:
+  focused:
+    background: '#606070'
+    border: '#808090'
+    indicator: '#2e9ef4'
+    text: '#C0C0C5'
+  focused_inactive:
+    background: '#303040'
+    border: '#5F5F6F'
+    indicator: '#484e50'
+    text: '#707075'
+  unfocused:
+    background: '#303030'
+    border: '#5F5F5F'
+    indicator: '#292d2e'
+    text: '#808080'
+  urgent:
+    background: '#900000'
+    border: '#2f343a'
+    indicator: '#900000'
+    text: '#ffffff'
+

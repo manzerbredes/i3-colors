@@ -23,6 +23,9 @@ archlinux:
 base16-tomorrow:
 ![base16-tomorrow](themes/base16-tomorrow.jpg)
 
+breeze:
+![breeze](themes/breeze.jpg)
+
 debian:
 ![debian](themes/debian.jpg)
 
@@ -35,11 +38,17 @@ default:
 flat-gray:
 ![flat-gray](themes/flat-gray.jpg)
 
+google:
+![google](themes/google.jpg)
+
 gruvbox:
 ![gruvbox](themes/gruvbox.jpg)
 
 icelines:
 ![icelines](themes/icelines.jpg)
+
+ion3:
+![ion3](themes/ion3.jpg)
 
 lime:
 ![lime](themes/lime.jpg)
@@ -65,8 +74,15 @@ slate:
 solarized:
 ![solarized](themes/solarized.jpg)
 
+solarized_light:
+![solarized_light](themes/solarized_light.jpg)
+
 tomorrow-night-80s:
 ![tomorrow-night-80s](themes/tomorrow-night-80s.jpg)
 
 ubuntu:
 ![ubuntu](themes/ubuntu.jpg)
+
+wc8:
+![wc8](themes/wc8.jpg)
+

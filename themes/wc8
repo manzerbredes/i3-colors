@@ -1,0 +1,45 @@
+bar_colors:
+  active_workspace:
+    background: '#555555'
+    border: '#555555'
+    text: '#D4CFB4'
+  background: '#D6CEC8'
+  focused_workspace:
+    background: '#2E5492'
+    border: '#2E5492'
+    text: '#ffffff'
+  inactive_workspace:
+    background: '#949494'
+    border: '#949494'
+    text: '#D4CFB4'
+  separator: '#D6CEC8'
+  statusline: '#000000'
+  urgent_workspace:
+    background: '#2E5492'
+    border: '#2E5492'
+    text: '#ffffff'
+meta:
+  author: lasers
+  description: Windows classic 8 theme for i3wm
+window_colors:
+  focused:
+    background: '#2E5492'
+    border: '#949494'
+    indicator: '#08226C'
+    text: '#ffffff'
+  focused_inactive:
+    background: '#848484'
+    border: '#949494'
+    indicator: '#292d2e'
+    text: '#D4CFB4'
+  unfocused:
+    background: '#848484'
+    border: '#949494'
+    indicator: '#292d2e'
+    text: '#D4CFB4'
+  urgent:
+    background: '#900000'
+    border: '#949494'
+    indicator: '#A65900'
+    text: '#ffffff'
+

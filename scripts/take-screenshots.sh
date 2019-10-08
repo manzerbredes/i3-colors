@@ -13,7 +13,7 @@ echo "Get ready for screenshots (5s)..."
 sleep 5
 for theme in $(ls ${theme_loc}|grep -v ".jpg")
 do
-    $i3_colors -r ${theme_loc}/${theme}
+    $i3_colors apply -r ${theme_loc}/${theme}
     sleep 2 # Wait for i3 reload
     scrot ${wai}/${theme}.png
 done
