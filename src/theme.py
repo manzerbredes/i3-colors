@@ -119,8 +119,11 @@ class ThemeBuilder:
             for token in tokens:
                 self.theme["bar_colors"][key][subkeys[0]]=self.get(token)
                 subkeys.pop(0)
-        elif re.match("(\s)*set",line):
-            key,name,value=line.split()
+        elif re.match("(\s)*set\s",line):
+            lineList=line.split()
+            key=lineList.pop(0)
+            name=lineList.pop(0)
+            value=" ".join(str(x) for x in lineList)
             self.vars.append(name)
             self.vars_values[name]=value
             

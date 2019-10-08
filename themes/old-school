@@ -1,0 +1,42 @@
+bar_colors:
+  active_workspace:
+    background: '#73c074'
+    border: '#888cc3'
+    text: '#3c0cf9'
+  background: '#708b5f'
+  focused_workspace:
+    background: '#8d1560'
+    border: '#66e032'
+    text: '#10e344'
+  inactive_workspace:
+    background: '#fac4b2'
+    border: '#62d183'
+    text: '#1325b3'
+  separator: '#1cdd60'
+  statusline: '#ed4c7d'
+  urgent_workspace:
+    background: '#449789'
+    border: '#53da79'
+    text: '#62594e'
+meta:
+  author: manzerbredes
+window_colors:
+  focused:
+    background: '#fdcb49'
+    border: '#5bce18'
+    child_border: '#16461c'
+    indicator: '#95fd91'
+    text: '#295ca9'
+  unfocused:
+    background: '#ca9868'
+    border: '#510fc6'
+    child_border: '#1c83b8'
+    indicator: '#c3e749'
+    text: '#fae16a'
+  urgent:
+    background: '#5a4034'
+    border: '#23cc8c'
+    child_border: '#c9589'
+    indicator: '#d85ff1'
+    text: '#dd19ad'
+
