@@ -1,4 +1,4 @@
-import re,tempfile,shutil
+import re,tempfile,shutil,theme
 
 config_keys=["client.focused",
              "client.focused_inactive",
@@ -66,7 +66,31 @@ def extract(config_file):
     f.close()
     tmp.close()
     return(tmp.name)
-            
+
+
+def extract_theme(config_file):
+    """
+    Return a ThemeBuilder object of the config_file file.
+    """
+    f=open(config_file,"r")
+    build=theme.ThemeBuilder()
+    in_colors=False
+    for line_orig in f:
+        line=no_comment(line_orig)
+        is_theme_line=False
+        for key in config_keys:
+            if contains(".*"+key+"\s",line):
+                is_theme_line=True
+        if contains(".*colors",line):
+            in_colors=True
+        if is_theme_line or in_colors:
+            build.parse(line_orig) # Seems to by strange to have comment here
+        if contains(".*}",line) and in_colors:
+            in_colors=False    
+    f.close()
+    return(build)
+
+
 def write_theme(tmp_config,theme):
     """
     Write the theme in a temporary file

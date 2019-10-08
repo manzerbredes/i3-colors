@@ -9,21 +9,36 @@ def log(msg,title=""):
         print(msg)
 ###########################
 
-
-##### Parse Arguments #####
-args_parser = argparse.ArgumentParser(description='I3 Window Manager Colors Themer.')
-args_parser.add_argument('theme_path', type=str, nargs='?',
-                    help='I3 YAML theme path.')
-args_parser.add_argument('-r', '--restart' ,action='store_true', help='Restart i3 after applying theme.')
-args = args_parser.parse_args()
-###########################
-
 ##### Apply Theme #####
-loaded_theme=theme.load(args.theme_path)
-config.apply(os.environ["HOME"]+"/.config/i3/config",loaded_theme)
-for meta_key,meta_value in loaded_theme["meta"].items():
-    log(meta_value,title=meta_key.title())
-if args.restart:
-    subprocess.Popen("i3-msg restart".split(),stdout=subprocess.PIPE, stderr=subprocess.PIPE) 
+def apply(args):
+    loaded_theme=theme.load(args.theme_path)
+    config.apply(os.environ["HOME"]+"/.config/i3/config",loaded_theme)
+    for meta_key,meta_value in loaded_theme["meta"].items():
+        log(meta_value,title=meta_key.title())
+        if args.restart:
+            subprocess.Popen("i3-msg restart".split(),stdout=subprocess.PIPE, stderr=subprocess.PIPE) 
 #######################
 
+##### Extract Theme #####
+def extract(args):
+    theme=config.extract_theme(args.config_path)
+    theme.dump()
+#######################
+
+##### Parse Arguments #####
+argsMainParser = argparse.ArgumentParser(description='I3 Window Manager Colors Themer.')
+argsSubParsers = argsMainParser.add_subparsers()
+argsApplyParser = argsSubParsers.add_parser("apply")
+argsApplyParser.add_argument('theme_path', type=str, nargs='?',
+                    help='I3 YAML theme path.')
+argsApplyParser.add_argument('-r', '--restart' ,action='store_true', help='Restart i3 after applying theme.')
+argsApplyParser.set_defaults(func=apply)
+
+argsExtractParser = argsSubParsers.add_parser("extract")
+argsExtractParser.add_argument('config_path', type=str, nargs='?',
+                    help='Extract theme from config file.')
+argsExtractParser.set_defaults(func=extract)
+
+args = argsMainParser.parse_args()
+args.func(args)
+###########################
