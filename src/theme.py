@@ -4,12 +4,16 @@ def configure(theme):
     if "colors" in theme:
         colors=theme["colors"]
         window_colors=theme["window_colors"]
+
+        ##### Apply colors to window #####
         for key1,value1 in window_colors.items():
             for key2,value2 in value1.items():
                 if re.match("#.*",value2) == None:
                     window_colors[key1][key2]=colors[value2]
         theme["window_colors"]=window_colors
-        
+        ##################################
+                
+        ##### Apply color to bar #####
         bar_colors=theme["bar_colors"]
         for key1,value1 in bar_colors.items():
             if isinstance(value1,dict):
@@ -20,6 +24,15 @@ def configure(theme):
                 if re.match("#.*",value1) == None:
                     bar_colors[key1]=colors[value1]
         theme["bar_colors"]=bar_colors
+        ##############################
+        
+    ##### I3-style theme do not include child_border by default #####
+    window_colors=theme["window_colors"]
+    for key,value in window_colors.items():
+        if not("child_border" in value):
+            newvalue=value
+            theme["window_colors"][key]["child_border"]=newvalue["border"] # Set it to border by default
+    #################################################################
     return(theme)
 
 def validate(theme):

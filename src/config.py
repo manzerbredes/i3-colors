@@ -14,10 +14,24 @@ config_keys=["client.focused",
             "inactive_workspace",
             "urgent_workspace"]
 
+##### Parsing Utils #####
 def contains(r,line):
+    """
+    Return true if line contains regex r.
+    """
     return(re.match(r,line)!=None)
-
+def before_token(token, line):
+    """
+    Return what is before token in line.
+    """
+    found=re.search(".*"+token,line)
+    if found:
+        return(found.group(0)[:-len(token)])
+    return("")
 def no_comment(line):
+    """
+    Remove comment from a line.
+    """
     newline=""
     for ch in line:
         if ch=='#':
@@ -25,7 +39,9 @@ def no_comment(line):
         else:
             newline+=ch
     return(newline)
-                    
+#########################
+
+
 def extract(config_file):
     """
      Return a temporary file path containing the current user configuration
@@ -99,7 +115,7 @@ def write_theme(tmp_config,theme):
     client_theme=theme["window_colors"]
     f=open(tmp_config,mode="a")
     for key,value in client_theme.items():
-        f.write("client."+key+" "+value["border"]+" "+value["background"]+" "+value["text"]+" "+value["indicator"]+" "+safe_get(value,"child_border")+"\n")
+        f.write("client."+key+" "+value["border"]+" "+value["background"]+" "+value["text"]+" "+value["indicator"]+" "+value["child_border"]+"\n")
     f.close()
 
 
