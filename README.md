@@ -1,5 +1,5 @@
 [![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
-[![Pipeline]](https://gitlab.com/manzerbredes/i3-colors/badges/master/pipeline.svg)
+[![Pipeline](https://gitlab.com/manzerbredes/i3-colors/badges/master/pipeline.svg)
 
 # i3-colors
 
