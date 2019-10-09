@@ -1,6 +1,6 @@
 [![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://gitlab.com/manzerbredes/i3-colors/raw/master/LICENSE)
 [![Pipeline](https://gitlab.com/manzerbredes/i3-colors/badges/master/pipeline.svg)](https://gitlab.com/manzerbredes/i3-colors/pipelines)
-
+[![Release](https://img.shields.io/badge/Release-v0.1.0-blue)](https://gitlab.com/manzerbredes/i3-colors/tree/v0.1.0)
 # i3-colors
 
 Simple Python i3 colors manager.<br />
