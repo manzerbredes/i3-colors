@@ -8,6 +8,8 @@ def apply(args):
         exit(1)
     loaded_theme=theme.load(args.theme_path)
     config_file=os.environ["HOME"]+"/.config/i3/config"
+    if args.config_path:
+        config_file=args.config_path
     if not(args.dry):
         config.apply(config_file,loaded_theme)
         for meta_key,meta_value in loaded_theme["meta"].items():
@@ -45,6 +47,8 @@ if __name__ == "__main__":
     argsApplyParser = argsSubParsers.add_parser("apply")
     argsApplyParser.add_argument('theme_path', type=str, nargs='?',
                                  help='I3 YAML theme path.')
+    argsApplyParser.add_argument('config_path', type=str, nargs='?',
+                                 help='I3 config file path.')
     argsApplyParser.add_argument('-r', '--restart' ,action='store_true', help='Restart i3 after applying theme.')
     argsApplyParser.add_argument('-d', '--dry' ,action='store_true', help='Do not apply theme, just print config file.')
     argsApplyParser.set_defaults(func=apply)
