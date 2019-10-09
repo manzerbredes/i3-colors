@@ -26,6 +26,8 @@ def before_token(token, line):
     if found:
         return(found.group(0)[:-len(token)])
     return("")
+def sorted_items(d):
+    return(sorted(d.items()))
 def no_comment(line):
     """
     Remove comment from a line.
@@ -113,7 +115,7 @@ def write_theme(tmp_config,theme):
             if len(beforeBrace)>0:
                 tmp.write(beforeBrace+"\n")
             tmp.write("  colors {\n")
-            for key,value in bar_theme.items():
+            for key,value in sorted_items(bar_theme):
                 if not(isinstance(value,dict)):
                     tmp.write("    "+key+" "+value+"\n")
                 else:
@@ -129,7 +131,7 @@ def write_theme(tmp_config,theme):
     ##### Apply client theme #####
     client_theme=theme["window_colors"]
     f=open(tmp_config,mode="a")
-    for key,value in client_theme.items():
+    for key,value in sorted_items(client_theme):
         f.write("client."+key+" "+value["border"]+" "+value["background"]+" "+value["text"]+" "+value["indicator"]+" "+value["child_border"]+"\n")
     f.close()
 

@@ -39,6 +39,10 @@ do
         then
             echo "========== Diff =========="
             echo -e "${diff_out}"
+            echo "========== Original =========="
+            cat "${expectations}"
+            echo "========== Test Output =========="
+            cat "${out}"
             clean
             exit 1            
         fi  

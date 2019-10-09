@@ -289,12 +289,12 @@ bar {
   status_command i3status -c ~/.config/i3/i3status.conf
   separator_symbol "|"
   colors {
-    separator #AAAAAA
-    background #1f2326
-    statusline #FFFFFF
-    focused_workspace #9FCA56 #9FCA56 #151718
     active_workspace #DCCD69 #DCCD69 #151718
+    background #1f2326
+    focused_workspace #9FCA56 #9FCA56 #151718
     inactive_workspace #1f2326 #1f2326 #AAAAAA
+    separator #AAAAAA
+    statusline #FFFFFF
     urgent_workspace #CE4045 #CE4045 #FFFFFF
   }
 }
