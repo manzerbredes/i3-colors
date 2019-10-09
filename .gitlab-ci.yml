@@ -1,5 +1,7 @@
 debian:
   stage: test
   image: debian:stable
+  before_script:
+    - apt-get -qq update && apt-get -qq install -y python
   script:
     - bash tests/run.sh break
