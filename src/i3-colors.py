@@ -1,4 +1,4 @@
-#!/usr/bin/python 
+#!/usr/bin/env python 
 import config, theme, os, argparse, subprocess,sys
 
 ##### Apply Theme #####
