@@ -2,6 +2,7 @@ debian:
   stage: test
   image: debian:stable
   before_script:
-    - apt-get -qq update && apt-get -qq install -y python python-yaml
+    - apt-get -qq update && apt-get -qq install -y python python-pip
+    - pip install PyYAML
   script:
     - bash tests/run.sh break
