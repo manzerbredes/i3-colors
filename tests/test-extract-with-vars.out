@@ -1,0 +1,48 @@
+bar_colors:
+  active_workspace:
+    background: '#2d2d2d'
+    border: '#414141'
+    text: '#ffffff'
+  background: '#2d2d2d'
+  focused_workspace:
+    background: '#2d76f6'
+    border: '#4183F6'
+    text: '#ffffff'
+  inactive_workspace:
+    background: '#2d2d2d'
+    border: '#414141'
+    text: '#bbbbbb'
+  separator: '#bbbbbb'
+  statusline: '#ffffff'
+  urgent_workspace:
+    background: '#ffc609'
+    border: '#FFCB21'
+    text: '#ffffff'
+meta:
+  description: Generated From i3-colors
+window_colors:
+  focused:
+    background: '#aaaaaa'
+    border: '#4183F6'
+    child_border: '#4183F6'
+    indicator: '#d8442e'
+    text: '#ffffff'
+  focused_inactive:
+    background: '#bbbbbb'
+    border: '#bbb2bb'
+    child_border: '#C1C1C1'
+    indicator: '#009c58'
+    text: '#ffffff'
+  unfocused:
+    background: '#2d2d2d'
+    border: '#414141'
+    child_border: '#414141'
+    indicator: '#bbbbbb'
+    text: '#ffffff'
+  urgent:
+    background: '#ffc609'
+    border: '#FFCB21'
+    child_border: '#FFCB21'
+    indicator: '#d8442e'
+    text: '#ffffff'
+
