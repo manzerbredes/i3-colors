@@ -12,7 +12,10 @@ def log(msg,title=""):
 ##### Apply Theme #####
 def apply(args):
     loaded_theme=theme.load(args.theme_path)
-    config.apply(os.environ["HOME"]+"/.config/i3/config",loaded_theme)
+    config_file=os.environ["HOME"]+"/.config/i3/config"
+    if args.config_path:
+        config_file=args.config_path
+    config.apply(config_file,loaded_theme)
     for meta_key,meta_value in loaded_theme["meta"].items():
         log(meta_value,title=meta_key.title())
         if args.restart:
@@ -36,6 +39,8 @@ argsApplyParser = argsSubParsers.add_parser("apply")
 argsApplyParser.add_argument('theme_path', type=str, nargs='?',
                     help='I3 YAML theme path.')
 argsApplyParser.add_argument('-r', '--restart' ,action='store_true', help='Restart i3 after applying theme.')
+argsApplyParser.add_argument('config_path', type=str, nargs='?',
+                    help='I3 configuration file.')
 argsApplyParser.set_defaults(func=apply)
 
 argsExtractParser = argsSubParsers.add_parser("extract")
