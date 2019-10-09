@@ -1,5 +1,5 @@
 debian:
   stage: test
-  image: "debian/stable"
+  image: debian:stable
   script:
     - bash tests/run.sh run
