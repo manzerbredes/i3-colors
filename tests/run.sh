@@ -36,7 +36,7 @@ do
             exit 1
         fi  
     else
-        nb_pass=$(( nb_test + 1 ))
+        nb_pass=$(( nb_pass + 1 ))
         passed "${test_name}"
     fi
 done

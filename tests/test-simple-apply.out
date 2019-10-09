@@ -1,5 +1,3 @@
-[92mAuthor[00m: lasers
-[92mUrl[00m: https://github.com/okraits/j4-make-config
 ##### Variables #####
 ##### Define workspaces names
 set $ws1 "1 "
@@ -289,7 +287,7 @@ bar {
   position top
   font pango:DejaVu Sans Mono 14
   status_command i3status -c ~/.config/i3/i3status.conf
-  separator_symbol "|"
+separator_symbol "|"
   colors {
     active_workspace #414141 #2d2d2d #ffffff
     background #2d2d2d
@@ -305,7 +303,7 @@ client.focused #4183F6 #2d76f6 #ffffff #d8442e #4183F6
 client.focused_inactive #C1C1C1 #bbbbbb #ffffff #009c58 #C1C1C1
 client.unfocused #414141 #2d2d2d #ffffff #bbbbbb #414141
 client.urgent #FFCB21 #ffc609 #ffffff #d8442e #FFCB21
-[92mDescription[00m: seti theme by Jody Ribton - based on the seti Atom theme at https://atom.io/themes/seti-ui
+
 ##### Variables #####
 ##### Define workspaces names
 set $ws1 "1 "
@@ -595,7 +593,7 @@ bar {
   position top
   font pango:DejaVu Sans Mono 14
   status_command i3status -c ~/.config/i3/i3status.conf
-  separator_symbol "|"
+separator_symbol "|"
   colors {
     separator #AAAAAA
     background #1f2326
@@ -611,3 +609,4 @@ client.focused #4F99D3 #4F99D3 #151718 #9FCA56 #4F99D3
 client.focused_inactive #9FCA56 #9FCA56 #151718 #A074C4 #9FCA56
 client.unfocused #1f2326 #1f2326 #AAAAAA #A074C4 #1f2326
 client.urgent #CE4045 #CE4045 #FFFFFF #DCCD69 #CE4045
+

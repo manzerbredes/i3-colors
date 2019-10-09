@@ -134,8 +134,13 @@ def write_theme(tmp_config,theme):
     f.close()
 
 
-def apply(config_file,theme):
+def apply(config_file,theme,dry=False):
     tmp=extract(config_file)
     write_theme(tmp,theme)
-    shutil.move(tmp,config_file)
+    f=open(tmp,mode="r")
+    new_config=f.read()
+    f.close()
+    if not(dry):
+        shutil.move(tmp,config_file)
+    return(new_config)
 
