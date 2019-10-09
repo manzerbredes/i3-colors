@@ -63,6 +63,9 @@ oceanic-next:
 okraits:
 ![okraits](themes/okraits.jpg)
 
+old-school:
+![old-school](themes/old-school.jpg)
+
 purple:
 ![purple](themes/purple.jpg)
 
