@@ -2,4 +2,4 @@ debian:
   stage: test
   image: debian:stable
   script:
-    - bash tests/run.sh run
+    - bash tests/run.sh break
