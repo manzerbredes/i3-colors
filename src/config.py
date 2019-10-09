@@ -27,6 +27,9 @@ def before_token(token, line):
         return(found.group(0)[:-len(token)])
     return("")
 def sorted_items(d):
+    """
+    Mainly used for integration testing (to keep having deterministic results).
+    """
     return(sorted(d.items()))
 def no_comment(line):
     """

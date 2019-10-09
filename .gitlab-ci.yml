@@ -6,3 +6,12 @@ debian:
     - pip install PyYAML
   script:
     - bash tests/run.sh break
+
+archlinux:
+  stage: test
+  image: archlinux/base
+  before_script:
+    - pacman -Sy --noconfirm && pacman -S --noconfirm python python-pip
+    - pip install PyYAML
+  script:
+    - bash tests/run.sh break
