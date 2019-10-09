@@ -9,8 +9,8 @@ Simple Python i3 colors manager.<br />
 **Notes:** Some of the themes come from [i3-style project](https://github.com/altdesktop/i3-style) and [j4-make-config](https://github.com/okraits/j4-make-config)
 
 ### Features
-- Instant theme changing `./i3-colors.py apply [theme-path]`
-- Theme extraction `./i3-colors.py extract [i3-config-file]`
+- Instant theme changing `./i3-colors.py apply -r <theme-path>`
+- Theme extraction `./i3-colors.py extract <i3-config-file>`
 - Apply random colors `./i3-colors.py aleatory`
 
 ### Screenshots
