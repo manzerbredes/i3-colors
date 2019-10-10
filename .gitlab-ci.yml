@@ -11,7 +11,7 @@ archlinux:
   stage: test
   image: archlinux/base
   before_script:
-    - pacman -Sy --noconfirm && pacman -S --noconfirm python python-pip
+    - pacman -Sy --noconfirm && pacman -S --noconfirm python python-pip diffutils
     - pip install PyYAML
   script:
     - bash tests/run.sh break
