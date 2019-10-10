@@ -68,8 +68,10 @@ then
     echo -e "\n===== STATS ====="
     echo "${nb_pass} pass"
     echo "${nb_fail} fails"
-
-    [ ${nb_fail} -gt 0 ] && exit 1
+    if [ ${nb_fail} -gt 0 ]
+    then
+        exit 1
+    fi
 else
     echo "Reset done."
 fi
