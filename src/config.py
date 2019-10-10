@@ -61,13 +61,13 @@ def extract(config_file):
                 is_theme_line=True
         if contains(".*colors",line):
             in_colors=True
-            beforeColor=before_token("colors",line).strip()
-            if len(beforeColor)>0:
-                tmp.write(beforeColor+"\n")
+            tmp.write(before_token("colors",line))
         if not(is_theme_line) and not(in_colors):
             tmp.write(line_orig)
         if contains(".*}",line) and in_colors:
-            in_colors=False    
+            in_colors=False
+            if len(re.findall("}",line)) > 1: # WARNING: two brackets can be on the same line so print it
+                tmp.write("}")
     f.close()
     tmp.close()
     return(tmp.name)
@@ -114,16 +114,14 @@ def write_theme(tmp_config,theme):
         if contains("(\s)*bar",line):
             in_bar=True
         if contains(".*}",line) and in_bar:
-            beforeBrace=before_token("}",line).strip()
-            if len(beforeBrace)>0:
-                tmp.write(beforeBrace+"\n")
-            tmp.write("  colors {\n")
+            tmp.write(before_token("}",line))
+            tmp.write("colors {\n")
             for key,value in sorted_items(bar_theme):
                 if not(isinstance(value,dict)):
-                    tmp.write("    "+key+" "+value+"\n")
+                    tmp.write("    "+key+" "+value+"\n") # Not that here we use custom indentation
                 else:
                     tmp.write("    "+key+" "+value["border"]+" "+value["background"]+" "+value["text"]+"\n")
-            tmp.write("  }\n}\n")
+            tmp.write("}}\n") # Not that here we loose last brace indentation
             in_bar=False
         else:
             tmp.write(line_orig)

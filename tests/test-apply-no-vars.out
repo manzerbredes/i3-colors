@@ -296,8 +296,7 @@ bar {
     separator #bbbbbb
     statusline #ffffff
     urgent_workspace #FFCB21 #ffc609 #ffffff
-  }
-}
+}}
 #################
 client.focused #4183F6 #2d76f6 #ffffff #d8442e #4183F6
 client.focused_inactive #C1C1C1 #bbbbbb #ffffff #009c58 #C1C1C1

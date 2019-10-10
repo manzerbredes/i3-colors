@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/loic/Documents/Git/manzerbredes/i3-colors/tests/../src/i3-colors.py", line 67, in <module>
+    args.func(args)
+  File "/home/loic/Documents/Git/manzerbredes/i3-colors/tests/../src/i3-colors.py", line 20, in apply
+    new_config=config.apply(config_file,loaded_theme,dry=True)
+  File "/home/loic/Documents/Git/manzerbredes/i3-colors/src/config.py", line 141, in apply
+    tmp=extract(config_file)
+  File "/home/loic/Documents/Git/manzerbredes/i3-colors/src/config.py", line 52, in extract
+    f=open(config_file,"r")
+FileNotFoundError: [Errno 2] No such file or directory: '/home/loic/Documents/Git/manzerbredes/i3-colors/tests/data/config-strange-colors-keywords-location'

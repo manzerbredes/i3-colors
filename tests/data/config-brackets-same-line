@@ -298,8 +298,7 @@ bar {
     urgent_workspace #FFCB21 #ffc609 #ffffff
 }}
 #################
-client.focused #4183F6 #aaaaaa #ffffff #d8442e #4183F6
-client.focused_inactive #bbb2bb #bbbbbb #ffffff #009c58 #C1C1C1
+client.focused #4183F6 #2d76f6 #ffffff #d8442e #4183F6
+client.focused_inactive #C1C1C1 #bbbbbb #ffffff #009c58 #C1C1C1
 client.unfocused #414141 #2d2d2d #ffffff #bbbbbb #414141
 client.urgent #FFCB21 #ffc609 #ffffff #d8442e #FFCB21
-
